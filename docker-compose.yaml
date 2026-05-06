@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=beedle
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=beedle_deals
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  api:
+    build: .
+    image: beedle-deals:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URL=db
+volumes:
+  pg_data:
