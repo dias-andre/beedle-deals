@@ -1,3 +1,16 @@
 spring:
   application:
     name: beedle-deals
+#  datasource:
+#    url: jdbc:${DB_URL}
+#    username: ${DB_USER}
+#    password: ${DB_PASSWORD}
+    # driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    fail-on-missing-locations: true
+
+  logging:
+    level:
+      org:
+        flywaydb: DEBUG
