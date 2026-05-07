@@ -9,7 +9,7 @@ import promo.bot.beedle_deals.core.usecases.PostDealUseCase;
 @Configuration
 public class BeanConfiguration {
     @Bean
-    public PostDealUseCase postDealUseCase(NotificationServicePort notificationPort) {
+    public DealApplication postDealUseCase(NotificationServicePort notificationPort) {
         return new DealApplication(notificationPort);
     }
 }
