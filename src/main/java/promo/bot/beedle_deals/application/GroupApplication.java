@@ -1,5 +1,6 @@
 package promo.bot.beedle_deals.application;
 
+import jakarta.transaction.Transactional;
 import promo.bot.beedle_deals.core.domain.Group;
 import promo.bot.beedle_deals.core.ports.GroupRepositoryPort;
 import promo.bot.beedle_deals.core.usecases.GroupUseCases;
@@ -15,6 +16,7 @@ public class GroupApplication implements GroupUseCases {
     }
 
     @Override
+    @Transactional
     public Group createGroup(String externalId) {
         Group newgp = new Group(externalId, OffsetDateTime.now());
         this.repository.saveGroup(newgp);
@@ -22,11 +24,13 @@ public class GroupApplication implements GroupUseCases {
     }
 
     @Override
+    @Transactional
     public boolean deleteGroup(String externalId) {
         return this.repository.deleteGroup(externalId);
     }
 
     @Override
+    @Transactional
     public Optional<Group> getGroup(String externalId) {
         return this.repository.getGroupByExternalId(externalId);
     }
