@@ -1,4 +1,4 @@
-package promo.bot.beedle_deals.core.application;
+package promo.bot.beedle_deals.application;
 
 import promo.bot.beedle_deals.core.domain.Product;
 import promo.bot.beedle_deals.core.exceptions.NotificationDeliveryException;
