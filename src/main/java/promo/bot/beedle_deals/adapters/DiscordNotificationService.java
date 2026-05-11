@@ -4,6 +4,7 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import promo.bot.beedle_deals.adapters.discord.DiscordSlashCommandListener;
 import promo.bot.beedle_deals.core.domain.Group;
@@ -15,6 +16,7 @@ import java.awt.*;
 import java.math.BigDecimal;
 
 @Service
+@Primary
 public class DiscordNotificationService implements NotificationServicePort {
 
     private final JDA jdaApi;
