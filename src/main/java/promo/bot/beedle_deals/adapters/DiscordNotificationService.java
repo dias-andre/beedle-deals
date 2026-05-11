@@ -27,7 +27,7 @@ public class DiscordNotificationService implements NotificationServicePort {
     }
 
     @Override
-    public void sendProduct(Product product, Group gp) throws NotificationDeliveryException {
+    public void sendProduct(Product product, Group gp) {
         var channel = this.jdaApi.getPrivateChannelById(gp.getExternalId());
         if (channel == null)
             throw new NotificationDeliveryException("Failed to get channel with id %s".formatted(gp.getExternalId()));
