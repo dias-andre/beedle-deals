@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.jspecify.annotations.NonNull;
 import promo.bot.beedle_deals.core.domain.Group;
 
 import java.time.OffsetDateTime;
@@ -22,7 +23,7 @@ public class ChatModel {
     @Column(updatable = false)
     private OffsetDateTime registeredAt;
 
-    public ChatModel(Group gp) {
+    public ChatModel(@NonNull Group gp) {
         this.registeredAt = gp.getRegisteredAt();
         this.externalId = gp.getExternalId();
     }
