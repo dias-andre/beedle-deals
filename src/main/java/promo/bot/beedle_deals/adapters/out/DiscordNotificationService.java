@@ -3,6 +3,7 @@ package promo.bot.beedle_deals.adapters.out;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -24,13 +25,14 @@ public class DiscordNotificationService implements NotificationServicePort {
     public DiscordNotificationService(@Value("${DISCORD_TOKEN}") String dcToken,
                                       DiscordSlashCommandListener cmdListener) {
         this.jdaApi = JDABuilder.createLight(dcToken)
+                .enableIntents(GatewayIntent.GUILD_MESSAGES)
                 .addEventListeners(cmdListener)
                 .build();
     }
 
     @Override
     public void sendProduct(Product product, Group gp) {
-        var channel = this.jdaApi.getPrivateChannelById(gp.getExternalId());
+        var channel = this.jdaApi.getTextChannelById(gp.getExternalId());
         if (channel == null)
             throw new NotificationDeliveryException("Failed to get channel with id %s".formatted(gp.getExternalId()));
 
@@ -52,7 +54,7 @@ public class DiscordNotificationService implements NotificationServicePort {
         //        );
         embed.setTitle("🚨 " + product.getName(), product.getAffiliateUrl());
         embed.setDescription("Preço: **R$ %.2f**".formatted(decimalPrice));
-        embed.setColor(Color.RED);
+        embed.setColor(Color.GREEN);
         embed.setImage(product.getImageUrl());
         channel.sendMessageEmbeds(embed.build()).queue();
     }
