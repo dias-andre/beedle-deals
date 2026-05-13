@@ -11,17 +11,17 @@ import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import org.springframework.stereotype.Component;
-import promo.bot.beedle_deals.application.GroupApplication;
 import promo.bot.beedle_deals.core.exceptions.AlreadyExistsException;
+import promo.bot.beedle_deals.core.usecases.GroupUseCases;
 
 import java.awt.*;
 
 @Slf4j
 @Component
 public class DiscordSlashCommandListener extends ListenerAdapter {
-    private GroupApplication gpApplication;
+    private final GroupUseCases gpApplication;
 
-    public DiscordSlashCommandListener(GroupApplication gpApp) {
+    public DiscordSlashCommandListener(GroupUseCases gpApp) {
         this.gpApplication = gpApp;
     }
 
