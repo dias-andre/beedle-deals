@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import promo.bot.beedle_deals.core.usecases.PostDealUseCase;
-import promo.bot.beedle_deals.dtos.ProductDTO;
+import promo.bot.beedle_deals.dtos.SendProductDTO;
 
 @RestController
 public class NotificationController {
@@ -16,8 +16,8 @@ public class NotificationController {
         this.dealUseCase = dealUseCase;
     }
     @PostMapping
-    public ResponseEntity<String> sendNotification(@Valid @RequestBody ProductDTO dto) {
-        this.dealUseCase.execute(dto.toDomain());
+    public ResponseEntity<String> sendNotification(@Valid @RequestBody SendProductDTO dto) {
+        this.dealUseCase.execute(dto.product().toDomain(), dto.externalGroupId());
 
         return ResponseEntity.ok().body("Notification sent");
     }
