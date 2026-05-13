@@ -1,5 +1,6 @@
 FROM maven:3.9-eclipse-temurin-17 AS build
 LABEL maintainer="André Dias <github.com/dias-andre>"
+LABEL org.opencontainers.image.source="https://github.com/dias-andre/beedle-deals"
 
 WORKDIR /app
 COPY pom.xml .
