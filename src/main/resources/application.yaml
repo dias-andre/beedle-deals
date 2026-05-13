@@ -9,6 +9,8 @@ spring:
   flyway:
     enabled: true
     fail-on-missing-locations: true
+  profiles:
+    active: ${APP_MODE}
 
   logging:
     level:
