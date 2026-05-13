@@ -1,4 +1,4 @@
-package promo.bot.beedle_deals.infra.database;
+package promo.bot.beedle_deals.adapters.out.db.models;
 
 import com.github.f4b6a3.uuid.UuidCreator;
 import jakarta.persistence.*;

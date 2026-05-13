@@ -1,4 +1,4 @@
-package promo.bot.beedle_deals.adapters;
+package promo.bot.beedle_deals.adapters.out;
 
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
-import promo.bot.beedle_deals.adapters.discord.DiscordSlashCommandListener;
+import promo.bot.beedle_deals.adapters.in.discord.DiscordSlashCommandListener;
 import promo.bot.beedle_deals.core.domain.Group;
 import promo.bot.beedle_deals.core.domain.Product;
 import promo.bot.beedle_deals.core.exceptions.NotificationDeliveryException;

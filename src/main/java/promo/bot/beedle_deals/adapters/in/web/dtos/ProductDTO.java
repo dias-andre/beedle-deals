@@ -1,4 +1,4 @@
-package promo.bot.beedle_deals.dtos;
+package promo.bot.beedle_deals.adapters.in.web.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;

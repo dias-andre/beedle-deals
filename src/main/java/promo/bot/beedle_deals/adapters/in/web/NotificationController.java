@@ -1,4 +1,4 @@
-package promo.bot.beedle_deals.controllers;
+package promo.bot.beedle_deals.adapters.in.web;
 
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import promo.bot.beedle_deals.core.usecases.PostDealUseCase;
-import promo.bot.beedle_deals.dtos.SendProductDTO;
+import promo.bot.beedle_deals.adapters.in.web.dtos.SendProductDTO;
 
 @RestController
 public class NotificationController {

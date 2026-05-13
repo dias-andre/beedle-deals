@@ -1,11 +1,11 @@
-package promo.bot.beedle_deals.adapters;
+package promo.bot.beedle_deals.adapters.out.db;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import promo.bot.beedle_deals.core.domain.Group;
 import promo.bot.beedle_deals.core.ports.GroupRepositoryPort;
-import promo.bot.beedle_deals.infra.database.ChatModel;
+import promo.bot.beedle_deals.adapters.out.db.models.ChatModel;
 
 import java.util.Optional;
 
