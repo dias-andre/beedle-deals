@@ -41,7 +41,7 @@ public class DiscordSlashCommandListener extends ListenerAdapter {
         if(event.getName().equals("add-channel")) {
             var embed = new EmbedBuilder();
             try {
-                this.gpApplication.createGroup(event.getChannelId());
+                this.gpApplication.createGroup(event.getChannel().getName(), event.getChannelId());
                 embed.setTitle("Channel registered successfully!");
                 embed.setDescription("Beedle will ship products here!");
                 embed.setColor(Color.GREEN);

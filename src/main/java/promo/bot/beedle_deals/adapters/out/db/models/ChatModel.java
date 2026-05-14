@@ -18,6 +18,9 @@ import java.util.UUID;
 public class ChatModel {
     @Id
     private UUID id;
+    private String name;
+
+    @Column(updatable = false)
     private String externalId;
 
     @Column(updatable = false)
@@ -28,13 +31,12 @@ public class ChatModel {
         this.externalId = gp.getExternalId();
     }
 
-
     @PrePersist
     protected void onCreate() {
         this.id = UuidCreator.getTimeOrderedEpoch();
     }
 
     public Group toDomain() {
-        return new Group(this.externalId, this.registeredAt);
+        return new Group(this.name, this.externalId, this.registeredAt);
     }
 }

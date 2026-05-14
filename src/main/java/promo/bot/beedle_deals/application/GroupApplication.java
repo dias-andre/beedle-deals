@@ -17,8 +17,8 @@ public class GroupApplication implements GroupUseCases {
 
     @Override
     @Transactional
-    public Group createGroup(String externalId) {
-        Group newgp = new Group(externalId, OffsetDateTime.now());
+    public Group createGroup(String name, String externalId) {
+        Group newgp = new Group(name, externalId, OffsetDateTime.now());
         this.repository.saveGroup(newgp);
         return newgp;
     }
