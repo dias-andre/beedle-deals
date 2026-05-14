@@ -7,6 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import promo.bot.beedle_deals.core.domain.Group;
 import promo.bot.beedle_deals.core.ports.GroupRepositoryPort;
+import promo.bot.beedle_deals.core.usecases.GroupUseCases;
 
 import java.util.Optional;
 
@@ -20,7 +21,7 @@ public class GroupApplicationTest {
     @Mock
     private GroupRepositoryPort repository;
 
-    private GroupApplication groupApplication;
+    private GroupUseCases groupApplication;
 
     @BeforeEach
     void setUp() {
