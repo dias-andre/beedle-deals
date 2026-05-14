@@ -1,0 +1,2 @@
+# Test profile overrides — keep empty or add test-specific properties here.
+# Do NOT set spring.profiles.active inside a profile-specific file.

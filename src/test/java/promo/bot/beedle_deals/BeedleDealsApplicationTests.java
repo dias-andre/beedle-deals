@@ -1,13 +1,13 @@
 package promo.bot.beedle_deals;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.platform.suite.api.SelectClasses;
+import org.junit.platform.suite.api.Suite;
+import promo.bot.beedle_deals.adapters.in.web.NotificationControllerTest;
+import promo.bot.beedle_deals.application.DealApplicationTest;
+import promo.bot.beedle_deals.application.GroupApplicationTest;
 
-@SpringBootTest
+@Suite
+@SelectClasses({DealApplicationTest.class, GroupApplicationTest.class, NotificationControllerTest.class})
 class BeedleDealsApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+    // RunsAllTests
 }
