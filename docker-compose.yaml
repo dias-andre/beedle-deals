@@ -9,12 +9,24 @@ services:
       - POSTGRES_DB=beedle_deals
     volumes:
       - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U beedle -d beedle_deals"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
   api:
     build: .
-    image: beedle-deals:latest
+    # image: ghcr.io/dias-andre/beedle:latest
     ports:
       - "8080:8080"
+    env_file:
+      - .env
     environment:
-      - DB_URL=db
+      - DB_URL=postgresql://db:5432/beedle_deals
+      - APP_MODE=prod
+    depends_on:
+      db:
+        condition: service_healthy
 volumes:
   pg_data:

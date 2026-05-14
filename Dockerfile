@@ -19,6 +19,7 @@ WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
 
+ENV APP_MODE=prod
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
