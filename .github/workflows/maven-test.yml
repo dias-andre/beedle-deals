@@ -20,8 +20,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Allow Maven Wrapper
-        run: chmod +x ./mvnw
+      - name: Install Project Depencencies
+        run: mvn dependency:go-offline
 
       - name: Run Tests
-        run: ./mvnw test
+        run: mvn test
