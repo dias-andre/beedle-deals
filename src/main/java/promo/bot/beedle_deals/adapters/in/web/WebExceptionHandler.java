@@ -2,6 +2,7 @@ package promo.bot.beedle_deals.adapters.in.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
@@ -30,6 +31,16 @@ public class WebExceptionHandler {
         return ResponseEntity.status(422).body(new ErrorDTO("UNPROCESSABLE_ENTITY", e.getMessage(), OffsetDateTime.now()));
     }
 
+    @ExceptionHandler(NoResourceFoundException.class)
+    public ResponseEntity<ErrorDTO> noResourceFound(NoResourceFoundException e) {
+        return ResponseEntity.status(404).body(new ErrorDTO("ROUTE_NOT_FOUND", e.getMessage(), OffsetDateTime.now()));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErrorDTO> methodArgumentNotValidException(MethodArgumentNotValidException e) {
+        return ResponseEntity.status(400).body(new ErrorDTO("VALIDATION_ERROR", e.getMessage(), OffsetDateTime.now()));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorDTO> genericException(Exception e) {
         log.error("Failure -> ", e);
@@ -38,10 +49,5 @@ public class WebExceptionHandler {
                 .message("Internal server error, contact administrator")
                 .timestamp(OffsetDateTime.now()).build()
         );
-    }
-
-    @ExceptionHandler(NoResourceFoundException.class)
-    public ResponseEntity<ErrorDTO> noResourceFound(NoResourceFoundException e) {
-        return ResponseEntity.status(404).body(new ErrorDTO("ROUTE_NOT_FOUND", e.getMessage(), OffsetDateTime.now()));
     }
 }
