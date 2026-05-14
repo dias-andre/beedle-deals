@@ -40,7 +40,7 @@ public class DealApplicationTest {
 
     @Test
     void shouldSendNotificationWhenGroupExists() {
-        var group = new Group("123456789012345678", OffsetDateTime.now());
+        var group = new Group("deals-group", "123456789012345678", OffsetDateTime.now());
         when(groupRepository.getGroupByExternalId("123456789012345678")).thenReturn(Optional.of(group));
 
         dealApplication.execute(validProduct, "123456789012345678");

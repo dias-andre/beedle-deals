@@ -24,7 +24,7 @@ public class GroupRepositoryAdapterTest {
 
     @Test
     void shouldSaveAndRetrieveGroupFromDatabase() {
-        Group gp = new Group("discord-000", OffsetDateTime.now());
+        Group gp = new Group("deals-group","discord-000", OffsetDateTime.now());
         this.adapter.saveGroup(gp);
         Optional<Group> savedGp = adapter.getGroupByExternalId("discord-000");
         assertTrue(savedGp.isPresent());
@@ -33,7 +33,7 @@ public class GroupRepositoryAdapterTest {
 
     @Test
     void shouldSaveAndDeleteGroup() {
-        Group gp = new Group("123", OffsetDateTime.now());
+        Group gp = new Group("deals-group", "123", OffsetDateTime.now());
         this.adapter.saveGroup(gp);
         boolean result = this.adapter.deleteGroup("123");
         assertTrue(result);

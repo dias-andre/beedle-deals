@@ -32,7 +32,7 @@ public class GroupApplicationTest {
     void shouldCreateGroup() {
         when(repository.saveGroup(any())).thenAnswer(invocation -> invocation.getArgument(0));
 
-        Group result = groupApplication.createGroup("channel-123");
+        Group result = groupApplication.createGroup("deals-group", "channel-123");
 
         assertEquals("channel-123", result.getExternalId());
         assertNotNull(result.getRegisteredAt());
@@ -55,7 +55,7 @@ public class GroupApplicationTest {
 
     @Test
     void shouldFindExistingGroup() {
-        var group = new Group("channel-123", null);
+        var group = new Group("deals-group", "channel-123", null);
         when(repository.getGroupByExternalId("channel-123")).thenReturn(Optional.of(group));
 
         Optional<Group> result = groupApplication.getGroup("channel-123");
