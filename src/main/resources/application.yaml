@@ -2,4 +2,4 @@ spring:
   application:
     name: beedle-deals
   profiles:
-    active: ${APP_MODE}
+    active: ${APP_MODE:dev}
