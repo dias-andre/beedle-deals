@@ -1,2 +1,16 @@
 # Test profile overrides — keep empty or add test-specific properties here.
 # Do NOT set spring.profiles.active inside a profile-specific file.
+spring:
+  datasource:
+    username: beedle
+    password: root
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:beedledb;DB_CLOSE_DELAY=-1
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+
+  flyway:
+    enabled: false

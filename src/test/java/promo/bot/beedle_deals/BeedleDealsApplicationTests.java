@@ -3,11 +3,17 @@ package promo.bot.beedle_deals;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 import promo.bot.beedle_deals.adapters.in.web.NotificationControllerTest;
+import promo.bot.beedle_deals.adapters.out.db.GroupRepositoryAdapterTest;
 import promo.bot.beedle_deals.application.DealApplicationTest;
 import promo.bot.beedle_deals.application.GroupApplicationTest;
 
 @Suite
-@SelectClasses({DealApplicationTest.class, GroupApplicationTest.class, NotificationControllerTest.class})
+@SelectClasses({
+        DealApplicationTest.class,
+        GroupApplicationTest.class,
+        NotificationControllerTest.class,
+        GroupRepositoryAdapterTest.class
+})
 class BeedleDealsApplicationTests {
     // RunsAllTests
 }
