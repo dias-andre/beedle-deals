@@ -82,7 +82,7 @@ public class GroupRepositoryAdapter implements GroupRepositoryPort {
     public void removeGroupCategory(Category category, Group group) {
         int affectedLines = entityManager.createNativeQuery("""
             DELETE FROM chats_categories 
-            WHERE category_name = :category_name,
+            WHERE category_name = :category_name
             AND chat_id = (SELECT id FROM chats WHERE external_id = :external_id)
         """)
                 .setParameter("category_name", category.name())
